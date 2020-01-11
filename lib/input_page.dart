@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const double bottomContainerHeight = 80.0;
 const Color activeCardColour = Color(0xFF1D1E33);
+const Color inactiveCardColour = Color(0xFF111328);
 const Color bottomContainerColour = Color(0xFFEB1555);
 
 class InputPage extends StatefulWidget {
@@ -13,6 +14,29 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Color maleCardColor = activeCardColour;
+  Color femaleCardColor = activeCardColour;
+
+  void updateColour(int gender) {
+    //1=male, 2=female
+    if (gender == 1) {
+      if (maleCardColor == inactiveCardColour) {
+        maleCardColor = activeCardColour;
+        femaleCardColor = inactiveCardColour;
+      } else {
+        maleCardColor = inactiveCardColour;
+      }
+    }
+    if (gender == 2) {
+      if (femaleCardColor == inactiveCardColour) {
+        femaleCardColor = activeCardColour;
+        maleCardColor = inactiveCardColour;
+      } else {
+        femaleCardColor = inactiveCardColour;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,17 +50,31 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: BuildContainer(
-                    colour: activeCardColour,
-                    cardChild:
-                        IconContent(icon: FontAwesomeIcons.mars, text: 'MALE'),
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        updateColour(1);
+                      });
+                    },
+                    child: BuildContainer(
+                      colour: maleCardColor,
+                      cardChild: IconContent(
+                          icon: FontAwesomeIcons.mars, text: 'MALE'),
+                    ),
                   ),
                 ),
                 Expanded(
-                  child: BuildContainer(
-                      colour: activeCardColour,
-                      cardChild: IconContent(
-                          icon: FontAwesomeIcons.venus, text: 'FEMALE')),
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        updateColour(2);
+                      });
+                    },
+                    child: BuildContainer(
+                        colour: femaleCardColor,
+                        cardChild: IconContent(
+                            icon: FontAwesomeIcons.venus, text: 'FEMALE')),
+                  ),
                 ),
               ],
             ),
