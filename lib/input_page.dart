@@ -1,6 +1,7 @@
 import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/icon_content.dart';
 import 'package:bmi_calculator/reusable_card.dart';
+import 'package:bmi_calculator/round_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -12,6 +13,8 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
   int heightSlider = 160;
+  int weight = 60;
+  int age = 22;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,8 +69,25 @@ class _InputPageState extends State<InputPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text('WEIGHT'),
-                      Text('60', style: kNumberTextStyle),
-                      _buttonsLastRow()
+                      Text('$weight', style: kNumberTextStyle),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          RoundIconButton(
+                            icon: FontAwesomeIcons.minus,
+                            onPress: () {
+                              setState(() => weight--);
+                            },
+                          ),
+                          SizedBox(width: 10),
+                          RoundIconButton(
+                            icon: FontAwesomeIcons.plus,
+                            onPress: () {
+                              setState(() => weight++);
+                            },
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 )),
@@ -78,40 +98,45 @@ class _InputPageState extends State<InputPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text('AGE'),
-                      Text('60', style: kNumberTextStyle),
-                      _buttonsLastRow(),
+                      Text('$age', style: kNumberTextStyle),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          RoundIconButton(
+                            icon: FontAwesomeIcons.minus,
+                            onPress: () {
+                              setState(() => age--);
+                            },
+                          ),
+                          SizedBox(width: 10),
+                          RoundIconButton(
+                            icon: FontAwesomeIcons.plus,
+                            onPress: () {
+                              setState(() => age++);
+                            },
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 )),
               ],
             ),
           ),
-          Container(
-            color: bottomContainerColour,
-            margin: EdgeInsets.only(top: 10),
-            width: double.infinity,
-            height: bottomContainerHeight,
+          GestureDetector(
+            onTap: () {},
+            child: Container(
+              color: bottomContainerColour,
+              margin: EdgeInsets.only(top: 10),
+              width: double.infinity,
+              height: bottomContainerHeight,
+              child: Center(
+                child: Text('CALCULATE YOUR BMI', style: topBottonStyle),
+              ),
+            ),
           ),
         ],
       ),
-    );
-  }
-
-  _buttonsLastRow() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        FloatingActionButton(
-          onPressed: () {},
-          child: Icon(Icons.add, color: Colors.white),
-          backgroundColor: Colors.grey,
-        ),
-        SizedBox(width: 10),
-        FloatingActionButton(
-            onPressed: () {},
-            child: Icon(Icons.add, color: Colors.white),
-            backgroundColor: Colors.grey),
-      ],
     );
   }
 
