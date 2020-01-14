@@ -16,4 +16,4 @@ const kSliderTheme = SliderThemeData(
     overlayColor: Color(0xFFEB1555),
     activeTickMarkColor: bottomContainerColour);
 const topBottonStyle =
-    TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 28);
+    TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 23);

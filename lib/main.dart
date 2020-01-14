@@ -18,7 +18,10 @@ class MyApp extends StatelessWidget {
           body1: labelStyle,
         ),
       ),
-      home: InputPage(),
+      initialRoute: 'inputPage',
+      routes: {
+        'inputPage':(BuildContext context)=>InputPage(),
+      },
     );
   }
 }
