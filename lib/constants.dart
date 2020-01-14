@@ -17,3 +17,7 @@ const kSliderTheme = SliderThemeData(
     activeTickMarkColor: bottomContainerColour);
 const topBottonStyle =
     TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 23);
+const kResultStyle = TextStyle(
+    color: Color(0xFF24D876), fontSize: 22, fontWeight: FontWeight.bold);
+const kBMItextStyle=TextStyle(fontSize: 100, fontWeight: FontWeight.bold);
+const kBMIBodyStyle=TextStyle(fontSize: 22,);

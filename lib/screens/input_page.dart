@@ -1,7 +1,8 @@
+import 'package:bmi_calculator/components/button_botton.dart';
+import 'package:bmi_calculator/components/icon_content.dart';
+import 'package:bmi_calculator/components/reusable_card.dart';
+import 'package:bmi_calculator/components/round_icon_button.dart';
 import 'package:bmi_calculator/constants.dart';
-import 'package:bmi_calculator/icon_content.dart';
-import 'package:bmi_calculator/reusable_card.dart';
-import 'package:bmi_calculator/round_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -123,17 +124,9 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
-            onTap: () =>Navigator.pushNamed(context, 'resultsPage'),
-            child: Container(
-              color: bottomContainerColour,
-              margin: EdgeInsets.only(top: 10),
-              width: double.infinity,
-              height: bottomContainerHeight,
-              child: Center(
-                child: Text('CALCULATE YOUR BMI', style: topBottonStyle),
-              ),
-            ),
+          BottonButton(
+            buttonTitle: 'CALCULATE YOUR BMI',
+            onTap: () => Navigator.pushReplacementNamed(context, 'resultsPage'),
           ),
         ],
       ),
