@@ -4,13 +4,19 @@ import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
 
 class ResultPage extends StatelessWidget {
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
+  ResultPage(
+      {@required this.bmiResult,
+      @required this.resultText,
+      @required this.interpretation});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'YOUR RESULT',
-        ),
+        title: Text('YOUR RESULT'),
         centerTitle: true,
       ),
       body: Column(
@@ -25,9 +31,9 @@ class ResultPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  Text('NORMAL', style: kResultStyle),
-                  Text('18.3', style: kBMItextStyle),
-                  Text('Your BMI is qute low',
+                  Text(resultText.toUpperCase(), style: kResultStyle),
+                  Text(bmiResult, style: kBMItextStyle),
+                  Text(interpretation,
                       style: kBMIBodyStyle, textAlign: TextAlign.center),
                 ],
               ),

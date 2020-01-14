@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       initialRoute: 'inputPage',
       routes: {
         'inputPage': (BuildContext context) => InputPage(),
-        'resultsPage': (BuildContext context) => ResultPage(),
+        'resultsPage': (BuildContext context) => ResultPage(bmiResult: ':)', interpretation: ':)', resultText: ':)',),
       },
     );
   }
