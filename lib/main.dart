@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:bmi_calculator/input_page.dart';
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFF0A0E21),
         scaffoldBackgroundColor: Color(0xFF0A0E21),
         textTheme: TextTheme(
-          body1: TextStyle(color: Colors.white,),
+          body1: labelStyle,
         ),
       ),
       home: InputPage(),
